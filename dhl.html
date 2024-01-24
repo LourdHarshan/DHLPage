@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHL Home</title>
+    <link rel="icon" href="./images/dhlLogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        html,body{
+            margin:0;
+            padding: 0;
+        }
+        header{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding:0 20px;
+            background: linear-gradient(to right,rgb(255, 183, 0) 50%,rgba(255,255,255,0.75));
+        }
+        header nav a{
+margin:auto 20px;
+        }
+        header nav{
+            margin: 20px 0;
+        }
+        header nav a:hover{
+            color:red;
+        }
+
+        /* Styling for Block-1 */
+
+        #block-1{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        #block-1 nav a:hover{
+    color:red;
+        }
+        #block-1 nav a{
+        margin: auto 20px;
+        }
+
+        /* Styling for Block-2 */
+
+        #block-2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("images/employee-receives-customer-signature-0001.web.1365.428.jpg");
+            background-repeat: no-repeat;
+            padding-top: 50px;
+            width:1400px;
+        }
+        #block-2 input:first-child{
+            outline: none;
+            height: 50px;
+            width: 400px;
+            border-radius: 5px;
+            border:none
+        }
+        #form{
+            position:relative;
+            
+            background-color: WHITE;
+            padding: 2px;
+            border-radius: 5px;
+        }
+        #block-2  label{
+            position:absolute;
+            top: 15px;
+            left: 20px;
+            color: rgba(0,0,0,0.55);
+            cursor: auto;
+            pointer-events: none;
+        }
+        input:focus + label{
+            font-size: smaller;
+            top:0;
+            left:0;
+        }
+        #block-2 input:last-child{
+            height: 50px;
+            width:100px;
+            color:white;
+            background-color: red;
+            border-radius: 5px;
+            border: none;
+        }
+        .boxes{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width:250px;
+            padding-top: 20px;
+            box-shadow: 1px 1px 1px 1px black;
+            background-color: white;
+        }
+        /* Styling for block-3 */
+        #block-3{
+            margin:60px 0;
+            padding-left: 60px;
+            background-color: rgba(0,0,0,0.05);
+            padding:20px 60px;
+            padding-bottom: 30px;
+            width: 1600px;
+        }
+        #block-3 > div{
+            display:flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        #block-3 > div div.box{
+            display:flex;
+            flex-direction: row;
+            margin:0 5px;
+            box-shadow: 1px 1px 1px black;
+            padding: 10px 20px;
+            border-radius: 2px;
+            background-color: white;
+        }
+
+        /* Styling for Block-4 */
+
+        #block-4 #container-1{
+            background-image: url("images/woman-signs-for-package-0002.jpeg");
+            background-size: 650px 600px;
+            background-position: right;
+            background-repeat: no-repeat;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin:40px auto;
+        }
+
+        #block-4 #container-1 div{
+            border-radius: 5px;
+            width: 600px;
+           
+            border-top: 1px solid black;
+            box-shadow: -1px -2px 2px black;
+            box-shadow: 1px 2px 2px black;
+            margin-left: 60px;
+            background-color: white;
+            padding-bottom: 5px;
+        }
+
+        #block-4 #container-1 div section.grey{
+            padding: 20px 30px;
+            background-color: rgba(0,0,0,0.05);
+        }
+        #block-4 #container-1 div section.white{
+            padding:10px 30px;
+        }
+
+        /* container-2 */
+        #block-4 #container-2{
+            background-image: url("images/workers-at-the-container-port-0001.jpeg");
+            background-size: 680px 600px;
+            background-repeat: no-repeat;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin:40px auto;
+        }
+
+        #block-4 #container-2 div{
+            border-radius: 5px;
+            width:600px;
+            border-top: 1px solid black;
+            box-shadow: -1px -2px 2px black;
+            box-shadow: 1px 2px 2px black;
+            padding-bottom: 5px;
+            margin-left: 650px;
+            background-color: white;
+        }
+        #block-4 #container-2 div section.grey{
+            padding: 20px 30px;
+            background-color: rgba(0,0,0,0.05);
+        }
+        #block-4 #container-2 div section.white{
+            padding:10px 30px;
+        }
+
+        /* container-3 */
+        #block-4 #container-3{
+            background-image: url("images/employees-working-in-warehouse-0005.jpeg");
+            background-size: 650px 600px;
+            background-repeat: no-repeat;
+            background-position: right;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin:40px auto;
+        }
+        #block-4 #container-3 div{
+            border-radius: 5px;
+            width: 600px;
+           
+            border-top: 1px solid black;
+            box-shadow: -1px -2px 2px black;
+            box-shadow: 1px 2px 2px black;
+            margin-left: 60px;
+            background-color: white;
+            padding-bottom: 5px;
+        }
+        #block-4 #container-3 div section.grey{
+            padding: 20px 30px;
+            background-color: rgba(0,0,0,0.05);
+        }
+        #block-4 #container-3 div section.white{
+            padding:10px 30px;
+        }
+
+        /* Styling for block-5 */
+
+        #block-5{
+            margin: 60px 20px;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #block-5 div{
+            display:flex;
+            flex-direction: column;
+            width:400px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        /* Styling for block-6 */
+
+        #block-6{
+            padding-bottom: 40px;
+        }
+
+        #block-6 table{
+            margin-left: 50px;
+            font-size: 15px;
+        }
+
+        #block-6 table td,th{
+            padding:10px 30px;
+        }
+
+        #block-6 table th{
+            text-align: left;
+        }
+
+        #block-6 table td a:hover{
+            text-decoration-line: underline;
+        }
+
+        /* Styling Footer */
+
+        footer{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-color: rgba(0,0,0,0.05);
+            margin-right: 0;
+        }
+
+        footer div ul li{
+            list-style-type: none;
+            padding: 10px 10px;
+        }
+        footer div ul#one{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 1000px;
+        }
+        footer div ul#two{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width:400px;
+        }
+        footer div ul#one li a:hover{
+            text-decoration-line: underline;
+        }
+        footer div ul#two li a:hover{
+            border:1px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!--Header-->
+
+
+<header>
+    <img src="./images/dhl-logo.svg" alt="dhlLogo" height="60px" width="160px">
+    <nav>
+        <a>Find a location &nbsp;<i class="fa-solid fa-up-right-from-square"></i></a>
+        <a><i class="fa fa-search" aria-hidden="true"></i> &nbsp;Search</a>
+        <a><i class="fa-solid fa-globe"></i> &nbsp;India</a>
+    </nav>
+</header>
+
+<!--Block-1-->
+
+
+<div id="block-1">
+ <nav style="display: flex;flex-direction: row;flex-wrap: wrap;">
+    <a>Track &nbsp;<i class="fa-solid fa-angle-down"></i></a>
+    <a>Ship&nbsp;<i class="fa-solid fa-angle-down"></i></a>
+    <a>Enterprise  Logistics Services&nbsp;<i class="fa-solid fa-angle-down"></i></a>
+    <a>Customer Service&nbsp;<i class="fa-solid fa-angle-down"></i></a>
+ </nav>
+ <nav>
+    <a>Customer Portal Logins&nbsp;<i class="fa-solid fa-angle-down"></i></a>
+ </nav>   
+</div>
+
+<!-- Block-2 -->
+<div id="block-2" style="position: relative;">
+    <h1 style="color:white;">Track your shipment</h1>
+<div id="form">
+    <input type="text" title="input">
+    <label>Enter your tracking number(s)</label>
+    <input type="submit" value="Track">
+</div>
+<div style="display:flex;flex-direction: row;margin-top: 100px;">
+    <div style="display: flex;flex-direction: row;">
+    
+    <div class="boxes">
+        <i class="fa-regular fa-calendar-days" style="font-size: 30px;color: red;"></i>
+        <h3>Ship Now</h3>
+        <p style="font-size: small;">Find the right service</p>
+    </div>
+    <div class="boxes">
+        <i class="fa-solid fa-file" style="font-size: 30px;color: red;"></i>
+        <h3>Get a Quote</h3>
+        <p style="font-size: small;">Estimate cost to share and compare</p>
+    </div>
+</div>
+    <div class="boxes final">
+        <i class="fa-solid fa-building" style="font-size: 30px;color: red;"></i>
+        <h3>DHL for Business</h3>
+        <p style="font-size: small;">Shipping regularly? Request a business<br>account and profit from exclusive benefits</p>
+    </div>
+</div>
+</div>
+
+<!-- Block-3 -->
+
+<div id="block-3">
+<h3>Important Service Updates</h3>
+<div>
+    <div class="box">
+        <i class="fa-solid fa-globe" style="font-size: 30px;margin-top: 15px;color:red;"></i>
+        <hr style="margin-top:10px;height: 80px; margin-left: 10px;margin-right: 10px;">
+        <div>
+        <h4>Ukraine Situation Update</h4>
+        Read more
+        </div>
+        <i class="fa-solid fa-up-right-from-square" style="margin-top: 25px;margin-left: 50px;color:red;"></i>
+    </div>
+    <div class="box">
+        <i class="fa-solid fa-mobile-screen" style="font-size: 30px;margin-top: 15px;color:red;"></i>
+        <hr style="margin-top:10px;height: 80px; margin-left: 10px;margin-right: 10px;">
+        <div>
+            <h4>SMS Scam Alert</h4>
+            Look out for malware titled "Download<br>our Application to Track Your Parcel"
+            </div>
+            <i class="fa-solid fa-chevron-right" style="margin-top: 25px;margin-left: 50px;color:red;"></i>
+    </div>
+</div>
+</div>
+
+<!-- Block-4 -->
+
+<div id="block-4">
+
+    <!--Container-1-->
+
+<div id="container-1">
+<div>
+<section class="white">
+<h1 style="font-size: 30px;">Document and Parcel Shipping</h1>
+<p style="font-size: 25px;">For All Shippers</p>
+<hr style="width:60px;border: 1px solid rgba(0,0,0,0.55);margin-left: 0;">
+<p style="font-size: 22px;">Learn about DHL Express – the undisputed global leader in international express shipping.</p>
+</section>
+<section class="grey">
+<h3>Services Available</h3>
+<table>
+    <tr>
+        <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-plane-departure" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Next Possible Business Day</td>
+        <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-business-time" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Tailored Business Solutions</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-location-dot" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Flexible Import/Export Options</td>
+        <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-gear" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Wide Variety of Optional Services</td>
+    </tr>
+</table>
+</section>
+<a style="border: 1px solid red;display: block;text-align: center;margin-top:10px;margin-left:10px;color:white;background-color: red;padding:20px 20px;margin-right: 10px;margin-bottom: 10px;">
+    Explore DHL Express
+</a>
+</div>
+</div>
+<br>
+<!--Container-2-->
+<div id="container-2">
+<div>
+    <section class="white">
+    <h1 style="font-size: 30px;">Cargo Shipping</h1>
+    <p style="font-size: 25px;">Business Only</p>
+    <hr style="width:60px;border: 1px solid rgba(0,0,0,0.55);margin-left: 0;">
+    <p style="font-size: 22px;">Discover shipping and logistics service options from DHL Global Forwarding.</p>
+    </section>
+    <section class="grey">
+    <h3>Services Available</h3>
+    <table>
+        <tr>
+            <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-plane-departure" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Air Freight</td>
+            <td style="padding-right: 40px;width:600px;"><i class="fa-brands fa-docker" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Ocean Freight</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-truck-fast" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Road Freight</td>
+            <td style="padding-right: 40px;width:600px;"><i class="fa-solid fa-train" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Rail Freight</td>
+        </tr>
+    </table>
+    </section>
+    <a style="border: 1px solid red;display: block;text-align: center;margin-top:10px;margin-left:10px;color:white;background-color: red;padding:20px 20px;margin-right: 10px;margin-bottom: 10px;">
+        Explore DHL Global Forwarding
+    </a>
+</div>
+</div>
+<br>
+
+<!--Container-3-->
+
+<div id="container-3">
+<div>
+<section class="white">
+    <h1 style="font-size: 30px;">Enterprise Logistics Services</h1>
+    <p style="font-size: 25px;">Business Only</p>
+    <hr style="width:60px;border: 1px solid rgba(0,0,0,0.55);margin-left: 0;">
+    <p style="font-size: 22px;">Find out how DHL Supply Chain can revolutionize your business as a 3PL provider.</p>
+</section>
+<section class="grey">
+<h3>Solutions Available</h3>
+<table>
+    <tr>
+        <td style="padding-right: 40px;width:600px;font-size: small;"><i class="fa-solid fa-warehouse" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Warehousing</td>
+        <td style="padding-right: 40px;width:600px;font-size: small;"><i class="fa-solid fa-boxes-packing" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Packaging</td>
+        <td style="padding-right: 40px;width:600px;font-size: small;"><i class="fa-solid fa-house" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Real Estate</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 40px;width:600px;font-size: small;"><i class="fa-solid fa-truck-arrow-right" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Transport</td>
+        <td style="padding-right: 40px;width:600px;font-size: small;"><i class="fa-solid fa-truck-front" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;Service Logistics</td>
+        <td style="padding-right: 40px;width:600px;font-size: small;"><i class="fa-solid fa-plus" style="background-color:rgb(255, 183, 0);padding: 10px;"></i>&nbsp;And more!</td>
+    </tr>
+</table>
+</section>
+<a style="border: 1px solid red;display: block;text-align: center;margin-top:10px;margin-left:10px;color:white;background-color: red;padding:20px 20px;margin-right: 10px;margin-bottom: 10px;">
+    Explore DHL Supply Chain
+</a>
+</div>
+</div>
+</div>
+
+<!-- Block-5-->
+
+<div id="block-5">
+<div>
+    <img src="./images/truck-drives-through-forest-0001.jpeg" alt="truck drives through forest">
+    <section style="margin: 20px 20px;">
+    <a style="font-size: 17px;font-weight: bold;">Green Logistics&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
+    <p>Sustainable business begins with sustainable supply chains. As the pioneer of green logistics, we have an unmatched portfolio of green logistics solutions. Find out what we have to offer, why we’re committed to sustainability, and how our industry is helping deliver an even better world.</p>
+    </section>
+</div>
+<div>
+    <img src="./images/booth-with-automotive-visions-0001.jpeg" alt="booth with automative innovation">
+    <section style="margin: 20px 20px;">
+    <a style="font-size: 17px;font-weight: bold;">Insights and Innovation&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
+    <p>To enable collaboration, the company brings together customers, research and academic institutions, industry partners, and logistics experts within the DHL business divisions. As a thought leader in the logistics industry, DHL structurally invests in trend research and solution development.</p>  
+    </section>
+</div>
+<div>
+    <img src="./images/dl-about-us-gci-2022.jpeg" alt="dl about us gci">
+    <section style="margin: 20px 20px;">
+        <a style="font-size: 17px;font-weight: bold;">DHL Global Connectedness Index&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a>
+        <p>The DHL Global Connectedness Index 2022 Update takes a comprehensive, data-driven look at the events of 2022. Find out how the world’s trading system recovered from the initial pandemic shock, what longstanding vulnerabilities have been exposed.</p>
+    </section>
+</div>
+</div>
+<hr style="border:1px solid rgba(0,0,0,0.25);width: 100%;">
+<br>
+
+<!--Block-6 -->
+
+<div id="block-6">
+<table>
+<tr>
+    <th style="color:red;">Quick Links</th>
+    <th>Our Divisions</th>
+    <th>Industry Sectors</th>
+    <th>Company Information</th>
+</tr>
+<tr>
+    <td><a>Customer Service</a></td>
+    <td><a>DHL Express</a></td>
+    <td><a>Auto-Mobility</a></td>
+    <td><a>About DHL</a></td>
+</tr>
+<tr>
+    <td><a>Customer Portal Logins</a></td>
+    <td><a>DHL Global Forwarding</a></td>
+    <td><a>Chemicals</a></td>
+    <td><a>Deliverd&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+<tr>
+    <td><a>Digital Partners and Integrations</a></td>
+    <td><a>DHL Supply Chain</a></td>
+    <td><a>Consumer</a></td>
+    <td><a>Careers</a></td>
+</tr>
+<tr>
+    <td><a>Developer Portal&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a></td>
+    <td><a>Other Global Divisions</a></td>
+    <td><a>Energy</a></td>
+    <td><a>Press Center</a></td>
+</tr>
+<tr>
+    <td><a>Get a Quote</a></td>
+    <td><a></a></td>
+    <td><a>Engineering and Manufacturing</a></td>
+    <td><a>Investors&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+<tr>
+    <td><a>DHL for Business</a></td>
+    <td><a></a></td>
+    <td><a>DHL for Business</a></td>
+    <td><a>Sustainability</a></td>
+</tr>
+<tr>
+    <td><a></a></td>
+    <td><a></a></td>
+    <td><a>Public Sector</a></td>
+    <td><a>CSR Policy in India</a></td>
+</tr>
+<tr>
+    <td><a></a></td>
+    <td><a></a></td>
+    <td><a>Retail</a></td>
+    <td><a>Insights and Innovation</a></td>    
+</tr>
+<tr>
+    <td><a></a></td>
+    <td><a></a></td>
+    <td><a>Technology</a></td>
+    <td><a>Brand Partnerships</a></td>
+</tr>
+</table>
+</div>
+<footer>
+    <div>
+        <img src="./images/glo-footer-logo.svg" alt="footer logo" style="margin-left: 50px;">
+        <ul id="one">
+            <li><a>Fraud Awareness</a></li>
+            <li><a>Legal Notice</a></li>
+            <li><a>Terms of Use</a></li>
+            <li><a>Privacy Notice</a></li>
+            <li><a>Dispute Resolution</a></li>
+            <li><a>Additional Information</a></li>
+            <li><a>Consent Settings</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 style="margin-left: 50px;">Follow Us</h3>
+        <ul id="two">
+            <li><a><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+    </div>
+</footer>
+<a id="move" style="display:none;border: 1px solid red;padding: 10px;font-size: 30px;background-color: red; color: white;border-radius: 5px;position: fixed;bottom:10px;right: 10px;" href="#block-1"><i class="fa-solid fa-chevron-up"></i></a>
+<a id="feedback" style="border:1px solid red;padding:10px;font-size:20px;background-color: red;color:white;position:fixed;right:-45px;top: 200px;transform: rotate(-90deg);"><i class="fa-regular fa-bell"></i>&nbsp;Feedback</a>
+<script>
+var header = document.getElementsByTagName("header")[0];
+var move = document.getElementById("move");
+window.onscroll = ()=>{
+    
+    if(document.body.scrollTop > 5 || document.documentElement.scrollTop > 5){
+        header.style.position = "fixed";
+        header.style.width="1300px";
+        header.style.backgroundColor="rgb(255,183,0)";
+    }else{
+        header.style.position="relative";
+    }
+    if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+        move.style.display = "block";
+    }else{
+        move.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
